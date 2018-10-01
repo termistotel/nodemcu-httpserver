@@ -1,4 +1,4 @@
-dofile("httpserver.lua")
+dofile("httpserver-functions.lua")
 
 -- Create server and listen on port 80
 server=net.createServer(net.TCP, 80)
@@ -25,7 +25,7 @@ responds["/test"] = function ( socket, requestData )
 	head = {}
 	head["Connection"] = "close"
 	head["Content-Type"] = "text/html"
-	
+
 	responseMetaData = headers( httpCodes.OK, head  ) 
 
 	-- print(requestData)

@@ -51,6 +51,16 @@ function requestHandler(sock,data)
 	path = string.match(data, 'GET (.-) HTTP/1.1')
 	if path == nil then return end
 
+	withoutParams = string.match(path, '(.-)%?')
+	if string.len(withoutParams) > 0 then
+		path = withoutParams
+	end
+	
+	if string.match(path, './$') then
+		print("eto" .. path)
+		path = path:sub(1, -2)
+	end
+
 	responseFun = responds[path]
 
 	if responseFun == nil then
