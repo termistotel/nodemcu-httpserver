@@ -55,7 +55,7 @@ function requestHandler(sock,data)
 	if string.len(withoutParams) > 0 then
 		path = withoutParams
 	end
-	
+
 	if string.match(path, './$') then
 		print("eto" .. path)
 		path = path:sub(1, -2)
