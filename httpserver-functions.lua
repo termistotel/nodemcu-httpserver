@@ -52,8 +52,10 @@ function requestHandler(sock,data)
 	if path == nil then return end
 
 	withoutParams = string.match(path, '(.-)%?')
-	if string.len(withoutParams) > 0 then
-		path = withoutParams
+	if withoutParams then
+		if string.len(withoutParams) > 0 then
+			path = withoutParams
+		end
 	end
 
 	if string.match(path, './$') then
